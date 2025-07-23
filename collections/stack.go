@@ -17,19 +17,19 @@ func (s *Stack[T]) Push(val T) {
 }
 
 func (s *Stack[T]) Pop() T {
-	res, err := s.TryPop()
-	if err != nil {
+	if res, err := s.TryPop(); err != nil {
 		panic(err)
+	} else {
+		return res
 	}
-	return res
 }
 
 func (s *Stack[T]) Peek() T {
-	res, err := s.TryPeek()
-	if err != nil {
+	if res, err := s.TryPeek(); err != nil {
 		panic(err)
+	} else {
+		return res
 	}
-	return res
 }
 
 func (s *Stack[T]) Empty() bool {

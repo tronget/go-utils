@@ -17,19 +17,19 @@ func (q *Queue[T]) Enqueue(val T) {
 }
 
 func (q *Queue[T]) Dequeue() T {
-	res, err := q.TryDequeue()
-	if err != nil {
+	if res, err := q.TryDequeue(); err != nil {
 		panic(err)
+	} else {
+		return res
 	}
-	return res
 }
 
 func (q *Queue[T]) Peek() T {
-	res, err := q.TryPeek()
-	if err != nil {
+	if res, err := q.TryPeek(); err != nil {
 		panic(err)
+	} else {
+		return res
 	}
-	return res
 }
 
 func (q *Queue[T]) Clear() {
