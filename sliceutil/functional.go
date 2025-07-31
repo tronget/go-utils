@@ -1,4 +1,4 @@
-package slices
+package sliceutil
 
 func Map[T any, R any](sl []T, f func(T) R) []R {
 	res := make([]R, len(sl))
